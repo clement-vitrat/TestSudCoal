@@ -2,7 +2,7 @@ export const associationliste = [
 	{
         id: 1,
 		rna: '123456789',
-        name: "Les Restaurants du Coeur du coin de la rue",
+        name: "Les Restaurants du Coeur du coin de la rue de Marseille",
 		image : 'https://upload.wikimedia.org/wikipedia/fr/thumb/a/ad/Restos_du_coeur_Logo.svg/1200px-Restos_du_coeur_Logo.svg.png',
         description: "Insérer trois quatres lignes de la description de l'association en question pas plus.",
 		regionId      :1,
