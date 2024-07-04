@@ -1,0 +1,37 @@
+name: Sync Master to Main
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Setup Git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Create new branch from master
+        run: |
+          git checkout -b temp-branch
+
+      - name: Pull main branch
+        run: |
+          git pull origin main
+
+      - name: Merge master into main
+        run: |
+          git checkout main
+          git merge temp-branch
+
+      - name: Push changes
+        run: |
+          git push origin main
